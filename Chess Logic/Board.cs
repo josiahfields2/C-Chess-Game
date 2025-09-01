@@ -9,6 +9,7 @@ namespace Chess_Logic
 {
     public class Board
     {
+        //2D array to hold pieces on the chessboard
         private readonly Piece[,] pieces = new Piece[8, 8];
 
         public Piece this[int row, int col]
@@ -17,12 +18,14 @@ namespace Chess_Logic
             set { pieces[row, col] = value; }
         }
 
+        // Indexer to access pieces using Position object
         public Piece this[Position pos]
         {
             get { return this[pos.Row, pos.Column]; }
             set { this[pos.Row, pos.Column] = value; }
         }
 
+        //Creates a new board with the initial chess setup
         public static Board Initial()
         {
             Board board = new Board();
@@ -30,6 +33,7 @@ namespace Chess_Logic
             return board;
         }
 
+        //Adds pieces to their starting positions on the board
         private void AddStartPiece()
         {
             this[0, 0] = new Rook(Player.Black);
@@ -57,6 +61,7 @@ namespace Chess_Logic
             }
         }
 
+        //Checks if a position is within the bounds of the chessboard
         public static bool IsInside(Position pos)
         {
             return pos.Row >= 0 && pos.Row < 8 && pos.Column >= 0 && pos.Column < 8;

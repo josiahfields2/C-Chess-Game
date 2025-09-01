@@ -2,6 +2,7 @@
 {
     public class Position
     {
+        // Row and Column are zero-indexed
         public int Row { get; }
         public int Column { get; }
         
@@ -11,6 +12,7 @@
             Column = column;
         }
 
+        // Determines the color of the square at this position
         public Player SquareColor()
         {
             if ((Row + Column) % 2 == 0)

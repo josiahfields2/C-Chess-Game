@@ -11,6 +11,7 @@ namespace Chess_UI
 {
     public static class Images
     {
+        //Applies image to White and Black pieces
         private static readonly Dictionary<PieceType, ImageSource> whiteSources = new()
         {
             { PieceType.Pawn, LoadImage("Assets/PawnW.png") },
@@ -30,11 +31,14 @@ namespace Chess_UI
             { PieceType.Queen, LoadImage("Assets/QueenB.png") },
             { PieceType.King, LoadImage("Assets/KingB.png") }
         };
+
+        //Loacds image from filepath
         private static ImageSource LoadImage(string filepath)
         {
             return new BitmapImage(new Uri(filepath, UriKind.Relative));
         }
 
+        //Returns image based on piece color and type
         public static ImageSource GetImage(Player color, PieceType type)
         {
             return color switch
@@ -44,6 +48,7 @@ namespace Chess_UI
                 _ => null
             };
         }
+        //Returns image based on piece
         public static ImageSource GetImage(Piece piece)
         {
             if (piece == null)

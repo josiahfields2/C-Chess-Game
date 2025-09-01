@@ -12,16 +12,18 @@ using Chess_Logic;
 
 namespace Chess_UI
 {
-
+    
     public partial class MainWindow : Window
     {
+        //2D array to hold images for each square on the chessboard
         private readonly Image[,] pieceImages = new Image[8, 8];
 
         private GameState gameState;
 
-
+        
         public MainWindow()
         {
+            //Sets up the chessboard and initializes the game state
             InitializeComponent();
             InitializeBoard();
 
@@ -31,6 +33,7 @@ namespace Chess_UI
 
         private void InitializeBoard()
         {
+            //Creates an 8x8 grid of Image controls to represent the chessboard squares
             for (int r = 0; r < 8; r++)
             {
                 for (int c = 0; c < 8; c++)

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Chess_Logic
 {
+    // Enum representing the different types of chess pieces
     public enum PieceType
     {
         Pawn,
