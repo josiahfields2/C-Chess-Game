@@ -20,5 +20,24 @@ namespace Chess_Logic
             CurrentPlayer = player;
             Board = board;
         }
+        // Returns all legal moves for the piece at the given position
+        public IEnumerable<Move> LegalMovesForPiece(Position pos)
+        {
+            if (Board.isEmpty(pos) || Board[pos].Color != CurrentPlayer)
+            {
+                return Enumerable.Empty<Move>();
+            }
+
+            Piece piece = Board[pos];
+            return piece.GetMoves(pos, Board);
+
+        }
+        // Executes a move and updates the game state accordingly
+        public void MakeMove(Move move)
+        {
+            move.Execute(Board);
+            CurrentPlayer = CurrentPlayer.Opponent();
+        }
+
     }
 }
